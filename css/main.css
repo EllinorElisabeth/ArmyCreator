@@ -1,0 +1,227 @@
+:root {
+    --primary-font-color: #ccc;
+    --header1-font-size: 56px;
+    --header2-font-size: 32px;
+    --header-font-letter-spacing: 1px;
+    --primary-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --primary-button-font-family: 'Courier New', Courier, monospace;
+    --font-size-header: 48px;
+    --font-size-sub-header: 16px;
+    --primary-button-font-weight: 600;
+    --primary-button-font-size: 16px;
+    --border-radius: 12px;
+    --border-radius-button: 8px;
+    --border-primary-color: solid 1px #f6feff;
+    --padding--button: 12px 16px; 
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, p {
+    font-family: var(--primary-font-family);
+    color: var(--primary-font-color);
+    letter-spacing: var(--header-font-letter-spacing);
+    padding: 16px;
+    text-align: center;
+}
+
+h2 {
+    font-size: var(--font-size-sub-header);
+    font-family: var(--primary-font-family);
+    color: var(--primary-font-color);
+}
+
+.warrior-content__warrior-name, .machine-content__machine-name, .animal-content__animal-name {
+    font-size: var(--font-size-sub-header);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 100px auto 100px;
+    grid-template-areas: 
+        "h h h h h h"
+        "a a m m m m"
+        "f f f f f f";
+
+    max-width: 100vw;
+}
+
+.header {
+    grid-area: h;
+    background-color: #444;
+    
+}
+.header__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 34px 12px;    
+}
+.header__logo a {
+    text-decoration: none;
+    margin-left: 24px;
+    color: var(--primary-font-color);
+    font-size: 24px;
+    font-family: var(--primary-font-family);
+}
+.header__navigation-links {
+    display: flex;
+    flex-direction: row;
+}
+.header__navigation-item {
+    list-style: none;
+}
+.header__navigation-link {
+    text-decoration: none;
+    border: solid 1px white;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    color: var(--primary-font-color);
+    font: var(--primary-font-family);
+    font-size: 24px;
+    font-family: var(--primary-font-family);
+    
+}
+.header__navigation-link:hover {
+    color: #f5f5f5;
+    background-color: #00195e;
+}
+
+.content {
+    grid-area: m;
+    background-color: #1e1e1e;
+    
+}
+
+.aside-content {
+    grid-area: a;
+    background-color: #333;
+    text-align: center;
+}
+
+
+#aside-content__resource-coin, #aside-content__resource-metal, #aside-content__resource-wood {
+    min-height: 180px;
+    min-width: 100px;
+}
+
+.aside-content__container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+}
+
+.aside-content__sticky {
+    position: sticky;
+    top: 40px;
+}
+
+.warrior-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.machine-content, .animal-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.warrior-content, .machine-content, .animal-content {
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    padding: 24px 280px;
+    gap: 32px;
+}
+
+.warrior-content__header, .machine-content__header, .animal-content__header {
+    background-color: green;
+    text-align: center;
+    font-size: var(--font-size-header);
+    justify-items: center;
+    margin-top: 100px;
+}
+.warrior-content__title, .machine-content__title, .animal-content__title {
+    justify-items: center;
+    gap: 32px;
+    padding: 16px;
+    font-size: var(--font-size-header);
+    color: red;
+}
+
+#machine-content-container, #animal-content-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 80px 0px;
+}
+
+.warrior-content__warrior, .machine-content__machine, .animal-content__animal, .aside-content__resource {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--border-radius);
+    background-color: #222;
+    border: var(--border-primary-color);
+    box-shadow: 2px 2px 4px #191919;
+    padding: 24px;
+    min-width: 330px;
+    
+}
+
+.warrior-content__warrior-img, .machine-content__machine-img {
+    filter:drop-shadow(2px 2px 4px #000);
+    margin: 16px;
+}
+
+.warrior-content__resource-shop-button, .machine-content__resource-shop-button, .animal-content__resource-shop-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--border-radius-button);
+    border: none;
+    background-color: #CCC;
+    font-family: var(--primary-button-font-family);
+    font-weight: var(--primary-button-font-weight);
+    font-size: var(--primary-button-font-size);
+    padding: var(--padding--button);
+
+}
+
+.warrior-content__resource-shop-button::before, .machine-content__resource-shop-button::before {
+    display: inherit;
+    
+}
+
+.warrior-content__resource-shop-button:hover, .machine-content__resource-shop-button:hover, .animal-content__resource-shop-button:hover {
+    background: linear-gradient(to right,#C3F4B2, #E2E700);
+    
+}
+
+
+
+
+/* --------------- Get Resource ------------------- */
+
+
+#get-resource-content__img-mines {
+    cursor: url('../images/pickaxe-cursor.png'), auto;
+}
+#get-resource-content__img-woods {
+    cursor: url('../images/axe-cursor.png'), auto;
+}
+
+
+
+.footer {
+    grid-area: f;
+    background-color: red;
+    /*grid-column-start: span 3;*/
+}

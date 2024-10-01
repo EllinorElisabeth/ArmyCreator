@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Army</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="header">
+            <nav class = "header__navigation">
+                <div class = "header__logo">
+                    <a href = "resourceShop.html"> Dette er en LOGO <!-- Sett inn logo --> </a>
+                </div>
+                <ul class = "header__navigation-links">
+                    <li class="header__navigation-item"><a class="header__navigation-link" href="resourceShop.html">Home</a></li>
+                    <li class="header__navigation-item"><a class="header__navigation-link" href="gettingResources.html">Get Resources</a></li>
+                    <li class="header__navigation-item"><a class="header__navigation-link" href="yourArmy.html">Your Army</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <aside class="aside-content">
+            <header>
+                <h1 class="aside-content__title">You Resources</h1>
+            </header>
+
+            <p class="aside-content__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+            <section>
+                <article class="aside-content__container">
+                    <div class="aside-content__resource" id="aside-content__resource-coin">
+                        <h2>Coin</h2>
+                        <img class="aside-content__img-coin" src="../images/gold-coin.png" alt="Bilde av gull mynt" width="40px">
+                        <p>Gold: <span id="aside-content__gold"></span></p>
+                    </div>
+                    <div class="aside-content__resource" id="aside-content__resource-metal">
+                        <h2>Metal</h2>
+                        <img class="aside-content__img-metal" src="../images/metal.png" alt="Bilde av metal" width="40px">
+                        <p>Metal: <span id="aside-content__metal"></span></p>
+                    </div>
+                    <div class="aside-content__resource" id="aside-content__resource-wood">
+                        <h2>Wood</h2>
+                        <img class="aside-content__img-wood" src="../images/wood.png" alt="Bilde av trestamme" width="40px" onclick="">
+                        <p>Wood: <span id="aside-content__wood"></span></p>
+                    </div>
+                </article>
+
+                <p>You can get more resources at the mine or forest.</p>
+            </section>
+
+        </aside>
+
+        <main class="content">
+
+            <input type="text" id="search-input" placeholder="Search..." oninput="searchBoughtArmy()">
+
+            <section class="" id="search-section"></section>
+
+                
+            </section>
+
+            <section class="army-content__display"></section>
+            
+            <section class="content__sub-style">
+                <header class="warrior-content__header">
+                    <h1 class="warrior-content__title">Warriors</h1>
+                </header>
+                <div class="warrior-content" id="warrior-army"></div>
+            </section>
+
+            <section class="content__sub-style">
+                <header class="machine-content__header">
+                    <h1 class="machine-content__title">War Machines</h1>
+                </header>
+                <div class="machine-content" id="machine-army"></div>
+            </section>
+            
+            <section class="content__sub-style">
+                <header class="animal-content__header">
+                    <h1 class="animal-content__title">Animals</h1>
+                </header>
+                <div class="animal-content" id="animal-army"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <h4 class="footer__text">I am Footer</h4>
+        </footer>
+
+    </div>
+
+    <script src="../scripts/storage.js" type="text/javascript" defer></script>
+    <script src="../scripts/your-army.js" type="text/javascript" defer></script>
+
+</body>
+</html>
