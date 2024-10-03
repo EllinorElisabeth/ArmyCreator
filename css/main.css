@@ -1,18 +1,17 @@
 :root {
-    --primary-font-color: #ccc;
-    --header1-font-size: 56px;
-    --header2-font-size: 32px;
-    --header-font-letter-spacing: 1px;
+    --primary-color: #ccc;
     --primary-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --primary-button-font-family: 'Courier New', Courier, monospace;
-    --font-size-header: 48px;
-    --font-size-sub-header: 16px;
+    --font-size-header: 3.4rem;
+    --font-weight-header: 800;
+    --font-size-sub-header: 1.2rem;
+    --letter-spacing: 0.2rem;
     --primary-button-font-weight: 600;
-    --primary-button-font-size: 16px;
-    --border-radius: 12px;
-    --border-radius-button: 8px;
-    --border-primary-color: solid 1px #f6feff;
-    --padding--button: 12px 16px; 
+    --primary-button-font-size: 1rem;
+    --border-radius: 1rem;
+    --border-radius-button: 0.5rem;
+    --border-primary-color: solid 0.1rem #2b2b2b;
+    --padding--button: 0.8rem 1rem; 
 
 }
 
@@ -20,23 +19,27 @@
     margin: 0;
     padding: 0;
 }
+body {
+    overflow-x: hidden;
+}
 
 h1, p {
     font-family: var(--primary-font-family);
-    color: var(--primary-font-color);
-    letter-spacing: var(--header-font-letter-spacing);
-    padding: 16px;
-    text-align: center;
+    letter-spacing: var(--letter-spacing);
+    color: var(--primary-color);
+    padding: 0.4rem;
+    text-align: start;
+}
+p {
+    font-size: small;
 }
 
 h2 {
     font-size: var(--font-size-sub-header);
     font-family: var(--primary-font-family);
-    color: var(--primary-font-color);
-}
-
-.warrior-content__warrior-name, .machine-content__machine-name, .animal-content__animal-name {
-    font-size: var(--font-size-sub-header);
+    color: var(--primary-color);
+    letter-spacing: var(--letter-spacing);
+    padding: 0.4rem;
 }
 
 .container {
@@ -47,56 +50,53 @@ h2 {
         "h h h h h h"
         "a a m m m m"
         "f f f f f f";
-
     max-width: 100vw;
 }
 
 .header {
     grid-area: h;
     background-color: #444;
-    
 }
 .header__navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 34px 12px;    
+    padding: 2rem 1rem;    
 }
 .header__logo a {
     text-decoration: none;
-    margin-left: 24px;
-    color: var(--primary-font-color);
-    font-size: 24px;
+    color: var(--primary-color);
     font-family: var(--primary-font-family);
+    font-size: 1.4rem;
+    margin-left: 1rem;
 }
 .header__navigation-links {
     display: flex;
     flex-direction: row;
-}
-.header__navigation-item {
     list-style: none;
 }
+
 .header__navigation-link {
     text-decoration: none;
-    border: solid 1px white;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
-    color: var(--primary-font-color);
+    padding: 1rem;
+    margin: 0.6rem;
+    color: var(--primary-color);
     font: var(--primary-font-family);
-    font-size: 24px;
     font-family: var(--primary-font-family);
+    border-radius: var(--border-radius-button);
+    border: solid 1px #494949;
+    box-shadow: 2px 2px 4px #292929;
+    transition: 0.3s ease;
     
 }
 .header__navigation-link:hover {
-    color: #f5f5f5;
-    background-color: #00195e;
+    background-color: #00212b;
+    box-shadow: 3px 3px 6px #222424;
 }
 
 .content {
     grid-area: m;
     background-color: #1e1e1e;
-    
 }
 
 .aside-content {
@@ -107,20 +107,24 @@ h2 {
 
 
 #aside-content__resource-coin, #aside-content__resource-metal, #aside-content__resource-wood {
-    min-height: 180px;
-    min-width: 100px;
+    min-height: 10rem;
+    min-width: 4rem;
+    background-color: #353535;
+    box-shadow: 1px 1px 2px #232424;
+    display: grid;
+    justify-content: center;
 }
 
 .aside-content__container {
     display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 24px;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 1rem;
 }
 
 .aside-content__sticky {
     position: sticky;
-    top: 40px;
+    top: 2rem;
 }
 
 .warrior-content {
@@ -134,51 +138,56 @@ h2 {
 }
 
 .warrior-content, .machine-content, .animal-content {
-    justify-items: center;
+    display: grid;
     align-items: center;
-    justify-content: center;
-    align-self: center;
-    padding: 24px 280px;
-    gap: 32px;
+    justify-content: space-evenly;
+    margin: 1rem;
+    gap: 1rem;
 }
 
 .warrior-content__header, .machine-content__header, .animal-content__header {
-    background-color: green;
-    text-align: center;
     font-size: var(--font-size-header);
-    justify-items: center;
-    margin-top: 100px;
+    margin-top: 4rem;
 }
 .warrior-content__title, .machine-content__title, .animal-content__title {
     justify-items: center;
     gap: 32px;
     padding: 16px;
     font-size: var(--font-size-header);
-    color: red;
+    color: #aaa;
 }
 
 #machine-content-container, #animal-content-container {
     grid-template-columns: repeat(2, 1fr);
-    margin: 80px 0px;
 }
 
 .warrior-content__warrior, .machine-content__machine, .animal-content__animal, .aside-content__resource {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    justify-items: center;
     border-radius: var(--border-radius);
-    background-color: #222;
-    border: var(--border-primary-color);
-    box-shadow: 2px 2px 4px #191919;
-    padding: 24px;
-    min-width: 330px;
-    
+    background-color: #202020;
+    border: solid 1px #262626;
+    box-shadow: 2px 2px 4px #101010;
+    padding: 1.6rem;
+    transition: ease 0.2s;
 }
 
-.warrior-content__warrior-img, .machine-content__machine-img {
-    filter:drop-shadow(2px 2px 4px #000);
-    margin: 16px;
+.warrior-content__warrior:hover, .machine-content__machine:hover, .animal-content__animal:hover {
+    display: inherit;
+    border: solid 1px #333;
+    box-shadow: 4px 4px 8px #101010,
+    -2px -2px 2px #262626;
+    background-color: #181a1a;
+}
+
+.warrior-content__warrior-img, .machine-content__machine-img, .animal-content__animal-img {
+    filter:drop-shadow(2px 2px 0px #000);
+    margin: 1rem;
+    transition: ease-in-out 0.2s;
+}
+.warrior-content__warrior-img:hover, .machine-content__machine-img:hover, .animal-content__animal-img:hover {
+    display: inherit;
+    filter:drop-shadow(4px 4px 2px #000);    
 }
 
 .warrior-content__resource-shop-button, .machine-content__resource-shop-button, .animal-content__resource-shop-button {
@@ -187,7 +196,7 @@ h2 {
     gap: 8px;
     border-radius: var(--border-radius-button);
     border: none;
-    background-color: #CCC;
+    background-color: var(--primary-color);
     font-family: var(--primary-button-font-family);
     font-weight: var(--primary-button-font-weight);
     font-size: var(--primary-button-font-size);
@@ -195,33 +204,47 @@ h2 {
 
 }
 
-.warrior-content__resource-shop-button::before, .machine-content__resource-shop-button::before {
-    display: inherit;
-    
-}
-
 .warrior-content__resource-shop-button:hover, .machine-content__resource-shop-button:hover, .animal-content__resource-shop-button:hover {
     background: linear-gradient(to right,#C3F4B2, #E2E700);
     
 }
 
+#search-input{
+    border-radius: var(--border-radius-button);
+    background-color: #878787;
+    margin: 1rem;
+    padding: 0.5rem;
+    transition: 0.4s ease-in-out;
+}
+#search-input:hover {
+    background-color: var(--primary-color);
+}
+#search-input::placeholder {
+    color: #000;
+}
 
+#purchased {
+    color: #24aad3;
+    font-weight: 600;
+    font-size: 14px;
+}
 
-
-/* --------------- Get Resource ------------------- */
-
-
+.get-resource-content__img{
+    margin: 0.4rem;
+}
 #get-resource-content__img-mines {
-    cursor: url('../images/pickaxe-cursor.png'), auto;
+    cursor: url('../images/pickaxe-cursor.png'), pointer;
 }
 #get-resource-content__img-woods {
-    cursor: url('../images/axe-cursor.png'), auto;
+    cursor: url('../images/axe-cursor.png'), pointer;
 }
-
 
 
 .footer {
     grid-area: f;
-    background-color: red;
-    /*grid-column-start: span 3;*/
+    display: grid;
+    align-items: center;
+    text-align: center;
+    background-color: #151617;
+    color: var(--primary-color);
 }

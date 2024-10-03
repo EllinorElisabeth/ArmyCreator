@@ -6,7 +6,7 @@ let woodAmount = parseInt(localStorage.getItem("wood")) || 0;
 function getMineResource() { 
     const randomValue = Math.random(); 
     const randomAmount = Math.floor(Math.random() * 10) + 1;
-    if(randomValue < 0.95) {
+    if(randomValue < 0.25) {
         goldAmount += randomAmount;
         localStorage.setItem("gold", goldAmount);
         alert(`Du fikk ${randomAmount} gull`);

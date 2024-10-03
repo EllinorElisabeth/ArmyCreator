@@ -4,13 +4,13 @@ const animalsModule = ( () => {
         {
             id: 1,
             categoryName: "Elephant",
-            priceWood: 40,
+            priceWood: 14,
             image: "../images/elephant.png"
         },
         {
             id: 2,
             categoryName: "Horse",
-            priceWood: 20,
+            priceWood: 12,
             image: "../images/horse.png"
         }
     ];

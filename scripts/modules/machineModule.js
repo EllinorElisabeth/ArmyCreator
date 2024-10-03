@@ -4,13 +4,13 @@ const machinesModule = ( () => {
         {
             id: 1,
             categoryName: "Canon",
-            priceMetal: 50,
+            priceMetal: 20,
             image: "../images/cannon.png"
         },
         {
             id: 2,
             categoryName: "Catapult",
-            priceMetal: 35,
+            priceMetal: 15,
             image: "../images/catapult.png"
         }
     ];

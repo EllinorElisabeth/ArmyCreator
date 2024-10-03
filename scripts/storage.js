@@ -12,6 +12,18 @@ function updateResourceDisplay() {
     }
 )();
 
+// Function: show purchased success message
+const showPurchasedSuccess = (object) => {
+    const sidebarConfirmation = document.getElementById("aside-content__confirmation");
+    if (sidebarConfirmation) {
+        sidebarConfirmation.innerHTML = `<p id="purchased">You have successfully purchased: ${object.categoryName}</p>`;
+    }
+
+    setTimeout(() => {
+        sidebarConfirmation.innerHTML = "";
+    }, 3000);
+}
+
 // Function: buy war resources
 function buyItem(type, categoryName, price) {
 
@@ -24,6 +36,7 @@ function buyItem(type, categoryName, price) {
             if (price <= goldAmount) {
                 updateLocalStorage(goldAmount, price, "gold");
                 addWarriorToArmy(categoryName, "../images/warrior-1.png");
+                showPurchasedSuccess({categoryName: "Snake"})
             } else {
                 alert("Not enought Gold...");
             }
@@ -31,6 +44,7 @@ function buyItem(type, categoryName, price) {
             if (price <= goldAmount) {
                 updateLocalStorage(goldAmount, price, "gold");
                 addWarriorToArmy(categoryName, "../images/warrior-2.png");
+                showPurchasedSuccess({categoryName: "Giant"})
             } else {
                 alert("Not enought Gold...");
             }
@@ -38,7 +52,7 @@ function buyItem(type, categoryName, price) {
             if (price <= goldAmount) {
                 updateLocalStorage(goldAmount, price, "gold");
                 addWarriorToArmy(categoryName, "../images/warrior-3.png");
-
+                showPurchasedSuccess({categoryName: "Big Axe"})
             } else {
                 alert("Not enought Gold...");
             }
@@ -46,7 +60,7 @@ function buyItem(type, categoryName, price) {
             if (price <= goldAmount) {
                 updateLocalStorage(goldAmount, price, "gold");
                 addWarriorToArmy(categoryName, "../images/warrior-4.png");
-
+                showPurchasedSuccess({categoryName: "Thief"})
             } else {
                 alert("Not enought Gold...");
             }
@@ -54,14 +68,15 @@ function buyItem(type, categoryName, price) {
             if (price <= goldAmount) {
                 updateLocalStorage(goldAmount, price, "gold");
                 addWarriorToArmy(categoryName, "../images/warrior-5.png");
-
+                showPurchasedSuccess({categoryName: "Tank"})
             } else {
                 alert("Not enought Gold...");
             }
         } else {
             if (price <= goldAmount) {
                 updateLocalStorage(goldAmount, price, "gold");
-                addWarriorToArmy(categoryName, "../images/warrior-5.png");
+                addWarriorToArmy(categoryName, "../images/warrior-6.png");
+                showPurchasedSuccess({categoryName: "Berserker"})
             } else {
                 alert("Not enought Gold...");
             }
@@ -69,12 +84,11 @@ function buyItem(type, categoryName, price) {
     }
 
     if (type === "machine") {
-        console.log("HAdet");
         if (categoryName === "Canon") {
             if (price <= metalAmount) {
                 updateLocalStorage(metalAmount, price, "metal");
                 addMachineToArmy(categoryName, "../images/cannon.png");
-
+                showPurchasedSuccess({categoryName: "Canon"})
             } else {
                 alert("Not enought metal...");
             }
@@ -82,6 +96,7 @@ function buyItem(type, categoryName, price) {
             if (price <= metalAmount) {
                 updateLocalStorage(metalAmount, price, "metal");
                 addMachineToArmy(categoryName, "../images/catapult.png");
+                showPurchasedSuccess({categoryName: "Catapult"})
             } else {
                 alert("Not enought metal...");
             }
@@ -93,6 +108,7 @@ function buyItem(type, categoryName, price) {
             if (price <= woodAmount) {
                 updateLocalStorage(woodAmount, price, "wood");
                 addAnimalToArmy(categoryName, "../images/elephant.png");
+                showPurchasedSuccess({categoryName: "Elephant"})
             } else {
                 alert("Not enought wood...");
             }
@@ -100,6 +116,7 @@ function buyItem(type, categoryName, price) {
             if (price <= woodAmount) {
                 updateLocalStorage(woodAmount, price, "wood");
                 addAnimalToArmy(categoryName, "../images/horse.png");
+                showPurchasedSuccess({categoryName: "Horse"})
             } else {
                 alert("Not enought wood...");
             }
@@ -148,7 +165,7 @@ function addAnimalToArmy(categoryName, image) {
     localStorage.setItem("animalArmy", JSON.stringify(animalArmy)) || [];
 }
 
-// Function: Seach through My Army
+// Function: Search through My Army
 function getArmyData() {
 
     // Get all purchased items
@@ -176,21 +193,21 @@ function searchBoughtArmy() {
 
         const army = getArmyData();
 
-        const filteredData = army.filter(object => object.categoryName.slice(0, input.length).toLowerCase().includes(input.toLowerCase));
+        const filteredData = army.filter(object => 
+            object.categoryName.slice(0, input.length).toLowerCase().includes(input.toLowerCase())
+        );
     
-
         filteredData.forEach((searchObject) => {
             htmlTxt += `
             <article class="object-content">
                 <h2 class="object-content">${searchObject.categoryName}</h2>
-                <img class="object-content__img" src="${searchObject.image}" alt="Bildet av dyret ${searchObject.categoryName}" height = "160px">
+                <img class="object-content__img" src="${searchObject.image}" alt="Bildet av dyret ${searchObject.categoryName}" width = "80px">
             </article>
             `
         });
     } else {
         htmlTxt = "";
     }
-
 
     searchSection.innerHTML = htmlTxt;
 }
